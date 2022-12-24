@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Marvel APES</string>
+    <string name="correo">Correo</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="unete_a_nosotros_vengador">Unete a nosotros Vengador!</string>
+    <string name="nombres_completos">Nombres Completos</string>
+    <string name="identificacion">Identificacion</string>
+    <string name="celular">Celular</string>
+    <string name="ya_tienes_cuenta">Ya Tienes Cuenta?</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="repetir_contrase_a">Repetir Contraseña</string>
+    <string name="no_tienes_cuenta">No Tienes Cuenta?</string>
+    <string name="registrate">Registrate</string>
+    <string name="inicia_sesion">Inicia Sesion</string>
+    <string name="home">Home</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="perfil">Perfil</string>
+</resources>
