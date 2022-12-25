@@ -1,4 +1,4 @@
-package com.example.marvelapes.core
+package com.example.mapes.core
 
 import java.lang.Exception
 

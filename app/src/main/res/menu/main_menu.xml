@@ -9,8 +9,4 @@
         android:title="@string/home"
         android:icon="@drawable/ic_baseline_home_24"
         />
-    <item android:id="@+id/qrFragment"
-        android:title="@string/perfil"
-        android:icon="@drawable/ic_baseline_person_24"
-        />
 </menu>

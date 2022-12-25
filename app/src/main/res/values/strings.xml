@@ -16,4 +16,6 @@
     <string name="home">Home</string>
     <string name="favoritos">Favoritos</string>
     <string name="perfil">Perfil</string>
+    <string name="see_more">See More...</string>
+    <string name="bienvenido">Bienvenido!</string>
 </resources>
