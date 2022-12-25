@@ -3,7 +3,6 @@ package com.example.mapes
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.opengl.ETC1.encodeImage
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
@@ -18,19 +17,15 @@ import com.example.mapes.core.networkInfo
 import com.example.mapes.data.localdb.AppDatabase
 import com.example.mapes.data.models.entities.character.CharacterEntity
 import com.example.mapes.databinding.ActivityMainBinding
-import com.example.marvelapes.core.Constants
-import com.example.marvelapes.core.Result
+import com.example.mapes.core.Constants
+import com.example.mapes.core.Result
 import com.example.marvelapes.data.rest.RetrofitClient
 import com.example.marvelapes.domain.characters.CharacterRepoImpl
 import com.example.marvelapes.presentation.CharacterViewModel
 import com.example.marvelapes.presentation.CharacterViewModelFactory
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.io.BufferedInputStream
 import java.io.ByteArrayOutputStream
-import java.io.FileInputStream
-import java.net.URL
 
 
 class MainActivity : AppCompatActivity() {
@@ -163,6 +158,7 @@ class MainActivity : AppCompatActivity() {
                                     if (count == list.size){
                                         val i = Intent(this@MainActivity,LoginActivity::class.java)
                                         startActivity(i)
+                                        finish()
                                     }
 
                                 }
@@ -184,4 +180,5 @@ class MainActivity : AppCompatActivity() {
             binding.llAlert.animate().translationY(0f).alpha(1f).setDuration(600)
         }
     }
+
 }

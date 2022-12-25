@@ -28,9 +28,9 @@ class MenuActivity : AppCompatActivity() {
     private fun observeDestination() {
         navController.addOnDestinationChangedListener{n,d,a ->
             when(d.id){
-                R.id.qrFragment ->{binding.bottomNavigation.visibility = View.VISIBLE}
-                R.id.mapFragment ->{binding.bottomNavigation.visibility = View.VISIBLE}
+                R.id.detailFragment ->{binding.bottomNavigation.visibility = View.GONE}
                 R.id.homeFragment ->{binding.bottomNavigation.visibility = View.VISIBLE}
+                R.id.favoriteFragment ->{binding.bottomNavigation.visibility = View.VISIBLE}
             }
         }
     }

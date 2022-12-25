@@ -29,10 +29,10 @@ import com.example.mapes.data.localdb.AppDatabase
 import com.example.mapes.databinding.DialogPhotoBinding
 import com.example.mapes.databinding.FragmentSignUpBinding
 import com.example.marvelapes.data.models.entities.user.UserEntity
-import com.example.marvelapes.core.Result
+import com.example.mapes.core.Result
 import com.example.marvelapes.domain.user.UserRepoImpl
-import com.example.marvelapes.presentation.UserViewModel
-import com.example.marvelapes.presentation.UserViewModelFactory
+import com.example.mapes.presentation.UserViewModel
+import com.example.mapes.presentation.UserViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -192,11 +192,19 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                             ).show()
                         }
                         is Result.Failure -> {
+                            if (it.exception.toString() == "java.lang.Exception: UNIQUE constraint failed: UserEntity.email (code 2067 SQLITE_CONSTRAINT_UNIQUE)" ){
+                                Snackbar.make(
+                                    binding.root,
+                                    "Error al registrarse, El correo ya existe",
+                                    Snackbar.LENGTH_SHORT
+                                ).show()
+                            }else{
                             Snackbar.make(
                                 binding.root,
-                                "Error al registrar un sitio",
+                                "Error al registrarse",
                                 Snackbar.LENGTH_SHORT
                             ).show()
+                            }
                             Log.e("Error", "sendUser: ${it.exception}")
                         }
                     }
@@ -206,7 +214,8 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
     }
 
-    private fun validateSamePasswords(): Boolean {
+    private fun validateSamePasswords(): Boolean
+    {
         return if (binding.tIEPassword.text.toString() != binding.tIERepeatPassword.text.toString()) {
             binding.tILPassword.error = "Las contraseñas no coinciden"
             binding.tILRepeatPassword.error = "Las contraseñas no coinciden"

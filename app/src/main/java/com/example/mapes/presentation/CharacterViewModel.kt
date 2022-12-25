@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.marvelapes.data.models.web.BaseResponse
 import com.example.marvelapes.domain.characters.CharacterRepo
-import com.example.marvelapes.core.Result
+import com.example.mapes.core.Result
 import com.example.mapes.data.models.entities.character.CharacterEntity
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow

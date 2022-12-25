@@ -13,7 +13,10 @@
     <string name="no_tienes_cuenta">No Tienes Cuenta?</string>
     <string name="registrate">Registrate</string>
     <string name="inicia_sesion">Inicia Sesion</string>
-    <string name="home">Home</string>
+    <string name="home">Principal</string>
     <string name="favoritos">Favoritos</string>
     <string name="perfil">Perfil</string>
+    <string name="see_more">Ver mas...</string>
+    <string name="bienvenido">Bienvenido!</string>
+    <string name="mis_favoritos">Mis Favoritos</string>
 </resources>

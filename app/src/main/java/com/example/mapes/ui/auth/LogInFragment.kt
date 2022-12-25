@@ -7,7 +7,7 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.animation.AnimationUtils
-import com.example.marvelapes.core.Result
+import com.example.mapes.core.Result
 import androidx.core.util.PatternsCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -17,12 +17,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.mapes.MenuActivity
 import com.example.mapes.R
 import com.example.mapes.databinding.FragmentLogInBinding
-import com.example.marvelapes.core.Constants
+import com.example.mapes.core.Constants
 import com.example.mapes.data.localdb.AppDatabase
 import com.example.marvelapes.data.models.entities.user.UserEntity
 import com.example.marvelapes.domain.user.UserRepoImpl
-import com.example.marvelapes.presentation.UserViewModel
-import com.example.marvelapes.presentation.UserViewModelFactory
+import com.example.mapes.presentation.UserViewModel
+import com.example.mapes.presentation.UserViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -89,8 +89,8 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
         }
 
         private fun sendSignIn() {
-                lifecycleScope.launchWhenStarted {
-                        lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+                        viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                                 viewModelUsers.getOneUser(binding.tIEEmail.text.toString()).collect {
                                         when (it) {
                                                 is Result.Loading -> {}
@@ -141,7 +141,6 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
                         putString("photo", usersEntity.photo)
                 }.apply()
         }
-
 
         private fun validateEmail(tIL: TextInputLayout, tIE: TextInputEditText): Boolean {
                 return if (tIE.text.isNullOrEmpty()) {

@@ -1,11 +1,11 @@
-package com.example.marvelapes.presentation
+package com.example.mapes.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.marvelapes.data.models.entities.user.UserEntity
 import com.example.marvelapes.domain.user.UserRepo
-import com.example.marvelapes.core.Result
+import com.example.mapes.core.Result
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flow
