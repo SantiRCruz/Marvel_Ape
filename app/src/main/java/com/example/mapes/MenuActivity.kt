@@ -30,6 +30,7 @@ class MenuActivity : AppCompatActivity() {
             when(d.id){
                 R.id.detailFragment ->{binding.bottomNavigation.visibility = View.GONE}
                 R.id.homeFragment ->{binding.bottomNavigation.visibility = View.VISIBLE}
+                R.id.favoriteFragment ->{binding.bottomNavigation.visibility = View.VISIBLE}
             }
         }
     }

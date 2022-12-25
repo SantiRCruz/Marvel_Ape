@@ -17,7 +17,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.mapes.MenuActivity
 import com.example.mapes.R
 import com.example.mapes.databinding.FragmentLogInBinding
-import com.example.marvelapes.core.Constants
+import com.example.mapes.core.Constants
 import com.example.mapes.data.localdb.AppDatabase
 import com.example.marvelapes.data.models.entities.user.UserEntity
 import com.example.marvelapes.domain.user.UserRepoImpl

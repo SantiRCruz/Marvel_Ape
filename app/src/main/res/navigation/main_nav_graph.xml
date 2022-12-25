@@ -23,4 +23,9 @@
             android:name="character"
             app:argType="com.example.mapes.data.models.entities.character.CharacterEntity" />
     </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.mapes.ui.main.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
 </navigation>

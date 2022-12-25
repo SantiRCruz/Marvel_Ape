@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.mapes.core.Result
 import com.example.mapes.data.models.entities.favorite.FavoriteEntity
+import com.example.mapes.data.models.entities.joins.FavoriteAndCharacter
 import com.example.mapes.domain.favorite.FavoriteRepo
 import com.example.marvelapes.data.models.entities.user.UserEntity
 import kotlinx.coroutines.flow.SharingStarted
@@ -23,7 +24,7 @@ class FavoriteViewModel (private val repo : FavoriteRepo) : ViewModel(){
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), Result.Loading())
 
-    fun getDbFavorites(id_user: Int): StateFlow<Result<List<FavoriteEntity>>> = flow {
+    fun getDbFavorites(id_user: Int): StateFlow<Result<List<FavoriteAndCharacter>>> = flow {
         kotlin.runCatching {
             repo.getDbFavorites(id_user)
         }.onSuccess {

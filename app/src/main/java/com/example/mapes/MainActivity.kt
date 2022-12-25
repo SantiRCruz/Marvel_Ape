@@ -17,7 +17,7 @@ import com.example.mapes.core.networkInfo
 import com.example.mapes.data.localdb.AppDatabase
 import com.example.mapes.data.models.entities.character.CharacterEntity
 import com.example.mapes.databinding.ActivityMainBinding
-import com.example.marvelapes.core.Constants
+import com.example.mapes.core.Constants
 import com.example.mapes.core.Result
 import com.example.marvelapes.data.rest.RetrofitClient
 import com.example.marvelapes.domain.characters.CharacterRepoImpl
@@ -158,6 +158,7 @@ class MainActivity : AppCompatActivity() {
                                     if (count == list.size){
                                         val i = Intent(this@MainActivity,LoginActivity::class.java)
                                         startActivity(i)
+                                        finish()
                                     }
 
                                 }

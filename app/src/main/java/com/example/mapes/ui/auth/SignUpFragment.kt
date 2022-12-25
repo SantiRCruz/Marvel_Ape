@@ -192,11 +192,19 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                             ).show()
                         }
                         is Result.Failure -> {
+                            if (it.exception.toString() == "java.lang.Exception: UNIQUE constraint failed: UserEntity.email (code 2067 SQLITE_CONSTRAINT_UNIQUE)" ){
+                                Snackbar.make(
+                                    binding.root,
+                                    "Error al registrarse, El correo ya existe",
+                                    Snackbar.LENGTH_SHORT
+                                ).show()
+                            }else{
                             Snackbar.make(
                                 binding.root,
-                                "Error al registrar un sitio",
+                                "Error al registrarse",
                                 Snackbar.LENGTH_SHORT
                             ).show()
+                            }
                             Log.e("Error", "sendUser: ${it.exception}")
                         }
                     }

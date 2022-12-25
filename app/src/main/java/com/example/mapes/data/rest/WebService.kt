@@ -1,6 +1,6 @@
 package com.example.marvelapes.data.rest
 
-import com.example.marvelapes.core.Constants
+import com.example.mapes.core.Constants
 import com.example.marvelapes.data.models.web.BaseResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

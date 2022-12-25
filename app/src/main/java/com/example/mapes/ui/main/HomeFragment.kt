@@ -12,6 +12,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager2.widget.ViewPager2
+import com.example.mapes.LoginActivity
 import com.example.mapes.R
 import com.example.mapes.core.decode64
 import com.example.mapes.core.Result
@@ -19,18 +20,18 @@ import com.example.mapes.data.localdb.AppDatabase
 import com.example.mapes.data.models.entities.character.CharacterEntity
 import com.example.mapes.databinding.FragmentHomeBinding
 import com.example.mapes.ui.main.adapter.CharactersAdapter
-import com.example.marvelapes.core.Constants
+import com.example.mapes.core.Constants
 import com.example.marvelapes.data.rest.RetrofitClient
 import com.example.marvelapes.domain.characters.CharacterRepoImpl
 import com.example.marvelapes.presentation.CharacterViewModel
 import com.example.marvelapes.presentation.CharacterViewModelFactory
 import com.google.android.material.snackbar.Snackbar
-import java.text.SimpleDateFormat
 
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var timer: CountDownTimer
     private var characterList = listOf<CharacterEntity>()
 
     private val viewModelCharacter by viewModels<CharacterViewModel> {
@@ -52,6 +53,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun clicks() {
+        binding.ivExit.setOnClickListener {
+            val i = Intent(requireContext(),LoginActivity::class.java)
+            startActivity(i)
+            requireActivity().finish()
+        }
     }
 
     private fun setUserData() {
@@ -92,8 +98,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         moveAuto(list)
     }
 
+
     private fun moveAuto(list: List<CharacterEntity>) {
-        object : CountDownTimer(3000, 100) {
+        timer = object : CountDownTimer(3000, 100) {
             override fun onTick(p0: Long) {
 
             }
@@ -110,4 +117,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }.start()
     }
 
+    override fun onPause() {
+        super.onPause()
+        timer.cancel()
+    }
 }
